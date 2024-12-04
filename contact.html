@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content />
+        <meta name="author" content />
+        <title>Portfolio - Nidheesh T</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Custom Google font-->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet" />
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+    </head>
+    <body class="d-flex flex-column">
+        <main class="flex-shrink-0">
+            <!-- Navigation-->
+            <nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
+                <div class="container px-5">
+                    <a class="navbar-brand" href="index.html"><span class="fw-bolder text-primary">Nidheesh T</span></a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 small fw-bolder">
+                            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href="resume.html">Resume</a></li>
+                            <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
+                            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!-- Page content-->
+            <section class="py-5">
+                <div class="container px-5">
+                    <!-- Contact form-->
+                    <div class="bg-light rounded-4 py-5 px-4 px-md-5">
+                        <div class="text-center mb-5">
+                            <div class="feature bg-primary bg-gradient-primary-to-secondary text-white rounded-3 mb-3"><i class="bi bi-envelope"></i></div>
+                            <h1 class="fw-bolder">Get in touch</h1>
+                            <p class="lead fw-normal text-muted mb-0">Let's work together!</p>
+                        </div>
+                        <div class="row gx-5 justify-content-center">
+                            <div class="col-lg-8 col-xl-6">
+                            <!-- -----------form---------- -->
+
+                                <form action="https://api.web3forms.com/submit" method="POST" id="contactForm">
+                                    <div class="row gy-4">
+                                        <input type="hidden" name="access_key" value="ceb434b8-3625-4369-9396-6132b2858d05">
+                                        <input type="hidden" name="email" value=""> 
+                                        <!-- Your email to receive submissions -->
+                                
+                                        <div class="col-md-6">
+                                            <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required="">
+                                            <span class="error-message" id="nameError"></span>
+                                        </div>
+                                
+                                        <div class="col-md-6">
+                                            <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required="">
+                                            <span class="error-message" id="emailError"></span>
+                                        </div>
+                                
+                                        <div class="col-md-12">
+                                            <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required="">
+                                            <span class="error-message" id="subjectError"></span>
+                                        </div>
+                                
+                                        <div class="col-md-12">
+                                            <textarea class="form-control" name="message" id="message" rows="6" placeholder="Message" required=""></textarea>
+                                            <span class="error-message" id="messageError"></span>
+                                        </div>
+                                
+                                        <div class="col-md-12 text-center">
+                                            <div id="loading" style="display:none;">Loading...</div>
+                                            <div class="sent-message" id="successMessage" style="display:none;">Your message has been sent. Thank you!</div>
+                                            <div id="errorMessage" class="error-message" style="display:none;">Error sending message.</div>
+                                            <button type="submit" id="submitBtn">Send Message</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            <!-- -------------------form------------ -->
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <!-- Footer-->
+        <footer class="bg-white py-4 mt-auto">
+            <div class="container px-5">
+                <div class="row align-items-center justify-content-between flex-column flex-sm-row">
+                    <div class="col-auto"><div class="small m-0">Copyright &copy; Your Website 2023</div></div>
+                    <div class="col-auto">
+                        <a class="small" href="#!">Privacy</a>
+                        <span class="mx-1">&middot;</span>
+                        <a class="small" href="#!">Terms</a>
+                        <span class="mx-1">&middot;</span>
+                        <a class="small" href="#!">Contact</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <!-- --------script------- -->
+        
+        <script>
+            document.getElementById("contactForm").addEventListener("submit", function(event) {
+                event.preventDefault(); // Prevent the form from submitting traditionally
+        
+                // Basic validation
+                const nameInput = document.getElementById("name").value.trim();
+                const emailInput = document.getElementById("email").value.trim();
+        
+                // Check if name is empty or contains numbers
+                if (nameInput === '' || /\d/.test(nameInput)) {
+                    alert("Please enter a valid name without numbers.");
+                    return;
+                }
+        
+                // Check if email is empty
+                if (emailInput === '') {
+                    alert("Please enter a valid email.");
+                    return;
+                }
+        
+                // Show loading indicator
+                document.getElementById("loading").style.display = "block";
+        
+                // Create a FormData object to capture the form data
+                const formData = new FormData(this);
+        
+                // Send the form data using Fetch API
+                fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => {
+                    document.getElementById("loading").style.display = "none"; // Hide loading indicator
+        
+                    if (response.ok) {
+                        // Display success message
+                        document.getElementById("successMessage").style.display = "block";
+                        document.getElementById("errorMessage").style.display = "none";
+                        this.reset(); // Clear form fields
+                    } else {
+                        // Display error message for response issues
+                        document.getElementById("errorMessage").style.display = "block";
+                    }
+                })
+                .catch(error => {
+                    document.getElementById("loading").style.display = "none"; // Hide loading indicator
+        
+                    // Display error message for network issues
+                    document.getElementById("errorMessage").style.display = "block";
+                    console.error("Error:", error); // Log detailed error to the console
+                });
+            });
+        </script>
+
+
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <!-- * *                               SB Forms JS                               * *-->
+        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+    </body>
+</html>
